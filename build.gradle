@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.multiplex'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper
+implementation group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.56'
+implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.7'
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
